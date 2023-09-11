@@ -2,30 +2,15 @@ from data import load_data
 import contractions
 import re
 
-
 df = load_data()
-
 raw_data = df
+
 def datapreprocess(raw_data):
     # drop any rows with missing Review Text
     raw_data.dropna(axis=0,
                     how='any',
                     subset=['Review Text'],
                     inplace=True)
-
-
-    # dataset = raw_data[['Review Text', 'Recommended IND', 'Department Name']]
-    #
-    #
-    # # filter the dataset for our aspect
-    # dataset = dataset[(dataset['Review Text'].str.contains(r'colors?\b')) &
-    #                   (dataset['Recommended IND']==0) &
-    #                   (dataset['Department Name']=='Dresses')
-    #                   ]
-    #
-    # print("Num. of observations:", len(dataset))
-    #
-
 
 def clean_slang(text):
     """
@@ -67,7 +52,6 @@ def clean_slang(text):
     text = re.sub(r"\s{2,}", " ", text).strip()
 
     return text
-
 
 def cont_expand(text):
     """

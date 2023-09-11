@@ -13,7 +13,6 @@ from textattack.models.wrappers import ModelWrapper
 from textattack.search_methods import GreedyWordSwapWIR
 from textattack.transformations import WordSwapEmbedding
 
-
 class CustomTensorFlowModelWrapper(ModelWrapper):
     """
     Implementation of a model wrapper class to
@@ -44,7 +43,6 @@ class CustomTensorFlowModelWrapper(ModelWrapper):
         return final_preds
 
     """## Creating the Attack"""
-
 
 def create_attack(model, tokenizer, maxlen, dataset, random_state):
     '''
@@ -92,12 +90,3 @@ def create_attack(model, tokenizer, maxlen, dataset, random_state):
     attack_results = attacker.attack_dataset()
 
     return attack_results
-
-# # display the attack results and the differences
-# logger = CSVLogger(color_method='html')
-
-# for result in attack_results:
-#     logger.log_attack_result(result)
-
-# from IPython.core.display import display, HTML
-# display(HTML(logger.df[['original_text', 'perturbed_text']].to_html(escape=False)))

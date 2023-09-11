@@ -2,14 +2,12 @@ import re
 
 import contractions
 
-
 def cont_expand(text):
     """
     Expand contractions (i.e don't->do not, can't->cannot)
     """
     expanded_text = contractions.fix(text, slang=False)
     return expanded_text
-
 
 def clean_slang_terms(text):
     """

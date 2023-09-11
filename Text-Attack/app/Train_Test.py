@@ -1,6 +1,5 @@
 from sklearn.model_selection import train_test_split
 
-
 def train_test(df, random_state):
     X = df.drop('Recommended IND', axis=1)
     y = df['Recommended IND']

@@ -23,11 +23,9 @@ pickle.dump(classifier, open(path, 'wb'))
 
 json_file = scores(y_test, y_pred)
 
-
 @app.get('/')
 def get_root():
     return {'message': 'Welcome to Tf-IDF and Random Forest API'}
-
 
 @app.get('/TF-IDF_RandomForest')
 def TfIDF_RandomForest():

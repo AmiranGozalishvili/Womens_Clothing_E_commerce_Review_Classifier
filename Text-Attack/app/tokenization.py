@@ -1,17 +1,13 @@
 from keras.preprocessing.text import Tokenizer
 from keras_preprocessing.sequence import pad_sequences
 
-
-# utilize the most frequently apprearing words in the corpus
-# num_words = 10000
-
+# utilize the most frequently apprearing words in the corpus:  num_words = 10000
 def init_tokenizer(num_words = 10000):
 
     # tokenize the training data
     tokenizer = Tokenizer(num_words=num_words,
                           filters='!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n1234567890')
     return tokenizer
-
 
 def tokenize(tokenizer, X_train, X_test):
 

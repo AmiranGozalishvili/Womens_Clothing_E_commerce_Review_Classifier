@@ -9,7 +9,6 @@ ml = MonkeyLearn('2544e6156c96f1e16f10e3846604e78d62df5a7f')
 # opinion unit extractor
 model_id = 'ex_N4aFcea3'
 
-
 def opinion_parser(text):
     """
     Extract the individual opinion unit (or phrase) within the text

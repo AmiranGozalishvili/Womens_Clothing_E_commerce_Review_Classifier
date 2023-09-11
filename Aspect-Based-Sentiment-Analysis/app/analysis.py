@@ -10,8 +10,6 @@ from datapreprocess import *
 dataset = df
 
 """## Polarity Analysis"""
-
-
 def polarity():
     print('polarity analysis checkpoint')
 
@@ -26,13 +24,9 @@ def polarity():
                 dpi=75,
                 bbox_inches="tight")
 
-
 """## Descriptor Analysis (n-gramming)"""
-
-
 def ngrams(text, n):
     return zip(*[text[i:] for i in range(n)])
-
 
 def display_ngram_frequency(corpus, n, display):
     """

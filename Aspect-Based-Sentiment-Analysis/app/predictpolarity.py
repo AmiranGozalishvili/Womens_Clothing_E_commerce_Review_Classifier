@@ -6,11 +6,6 @@ from datapreprocess import *
 # load a trained English pipeline
 nlp = spacy.load("en_core_web_sm")
 
-
-## python -m spacy download en_core_web_lg
-## python -m spacy download en_core_web_sm
-
-
 def polarity(text):
     """
     Predict the polarity of the text using TextBlob.
@@ -19,10 +14,7 @@ def polarity(text):
     testimonial = TextBlob(text)
     return round(testimonial.sentiment.polarity, 2)
 
-
 """## Identify Descriptors"""
-
-
 def dependency_matching(text):
     """
     Identify and extract word(s) that are describing

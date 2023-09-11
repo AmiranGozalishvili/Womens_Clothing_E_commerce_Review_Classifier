@@ -1,7 +1,5 @@
 from wordcloud import WordCloud
-
-from analysis import *
-
+import matplotlib.pyplot as plt
 
 def generate_wordcloud(text):
     """

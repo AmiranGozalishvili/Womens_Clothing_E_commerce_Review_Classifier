@@ -15,7 +15,7 @@ RUN pip install matplotlib
 RUN pip install seaborn
 RUN pip install textblob
 RUN pip install wordcloud
-RUN pip install sklearn
+RUN pip install -U scikit-learn
 RUN python -c "import nltk; nltk.download('wordnet')"
 RUN python -c "import nltk; nltk.download('punkt')"
 RUN python -c "import nltk; nltk.download('stopwords')"

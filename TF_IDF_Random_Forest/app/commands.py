@@ -9,6 +9,7 @@ nltk.download('punkt')
 nltk.download('wordnet')
 import spacy
 import re
+import json
 from sklearn.utils import resample
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
@@ -16,8 +17,8 @@ from sklearn.ensemble import RandomForestClassifier
 
 classifier = RandomForestClassifier()
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, plot_confusion_matrix, \
-    plot_roc_curve
+from sklearn.metrics import (accuracy_score, recall_score, precision_score, f1_score) # plot_confusion_matrix ,plot_roc_curve)
+
 
 from data import load_data
 
@@ -102,7 +103,6 @@ def preprocess():
 TF-IDF 
 '''
 
-
 def tf_idf():
     # define the corpus
     corpus = df['Review Text']
@@ -152,7 +152,6 @@ def grid_search(X_train, y_train):
 
 '''Random Forest'''
 
-
 def random_forest(X_train, X_test, y_train, y_test):
     # fit the optimized Random Forest model onto the training set
     classifier = RandomForestClassifier(n_estimators=50,
@@ -171,15 +170,14 @@ def random_forest(X_train, X_test, y_train, y_test):
     print("Percision Score:".ljust(18), round(precision_score(y_test, y_pred), 2))
     print("F1-Score:".ljust(18), round(f1_score(y_test, y_pred), 2))
 
-    # confusion matrix
-    plot_confusion_matrix(classifier, X_test, y_test)
-
-    # ROC curve
-    plot_roc_curve(classifier, X_test, y_test)
+    # # confusion matrix
+    # plot_confusion_matrix(classifier, X_test, y_test)
+    #
+    # # ROC curve
+    # plot_roc_curve(classifier, X_test, y_test)
 
     return y_pred, classifier
 
-import json
 
 def scores(y_test, y_pred):
 
@@ -194,3 +192,4 @@ def scores(y_test, y_pred):
     json_file = json.dumps(scores)
 
     return json_file
+
